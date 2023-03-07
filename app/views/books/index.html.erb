@@ -12,14 +12,17 @@
       <tr>
         <td><%= books.title %></td>
         <td><%= books.body %></td>
-        <td><%= link_to 'Show',book_path %></td>
-        <td><%= link_to 'Edit',edit_book_path %></td>
-        <td><%= link_to 'Destroy',book_path, method: :destroy %></td>
+        <td><%= link_to 'Show',book_path(books.id) %></td>
+        <td><%= link_to 'Edit',edit_book_path(books.id) %></td>
+        <td><%= link_to 'Destroy',book_path(books.id), method: :destroy %></td>
       </tr>
     </tbody>
   </table>
+<% end %>
+
 <h2>New book</h2>
-<%= form_with model: @book, url: book_path, method: :post do |f| %>
+<%= form_with model: @book, url: books_path, method: :post do |f| %>
 <div><%= f.text_field :title %></div>
 <div><%= f.text_area :body %></div>
 <div><%= f.submit '投稿' %></div>
+<% end %>
